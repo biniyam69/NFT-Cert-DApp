@@ -1,6 +1,6 @@
 # CertifyChain
 
-This starter full stack project has been generated using AlgoKit. See below for default getting started instructions.
+A project to issue cerificates as NFTs to fight infringement and fraud of academic and skill credentials by making the cerificate unique to the one and only individual that earned it.
 
 ## Setup
 
