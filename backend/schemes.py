@@ -4,6 +4,7 @@ class Transaction(BaseModel):
     sender_address: str
     reciever_address: str
     paraphrase: str
+    asset_id: int
     amount: int
     note: str
 
