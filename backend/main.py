@@ -9,8 +9,7 @@ from algosdk.transaction import AssetConfigTxn, AssetCreateTxn, AssetTransferTxn
 from algosdk.transaction import *
 from algosdk.error import *
 from algosdk.v2client import algod, indexer
-
-
+from schemes import AssetCreation, Transaction
 
 
 
@@ -84,7 +83,7 @@ def nft_transfer(transaction: Transaction):
 
 
 @app.post("/create_asset")
-def create_asset(asset_creation: AssetCreation):
+def create_asset(asset_creation: AssetCreation, transaction: Transaction):
     algod_address = "https://testnet-algorand.api.purestake.io/ps2"
     algod_token = "your-api-key"
     algod_client = algod.AlgodClient(algod_token, algod_address)
@@ -147,4 +146,15 @@ def get_transactions(account: str):
     '''
 
     return indexer_client.search_transactions_by_address(account)
+
+
+@app.get("/transaction/{transaction_ID}")
+def get_txn_info(transaction_ID: str):
+    '''
+    Get an info on a transaction by the txn ID
+    '''
+
+    return indexer_client.transaction(transaction_ID)
+
+
 
